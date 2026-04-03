@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Employees</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #38bdf8;
+        margin-bottom: 25px;
+        font-size: 28px;
+    }
+
+    .table-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        width: 90%;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    th {
+        background: rgba(56, 189, 248, 0.2);
+        color: #e0f2fe;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        color: #f1f5f9;
+    }
+
+    tr:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: scale(1.01);
+        transition: 0.2s;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    .back {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .back a button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #38bdf8;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .back a button:hover {
+        background: #0ea5e9;
+        transform: scale(1.05);
+    }
+
+</style>
+</head>
+
+<body>
+
+<h2>Employee List</h2>
+
+<div class="table-container">
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Skill</th>
+        <th>Workload Count</th>
+        <th>Tasks</th>
+        <th>Work Type</th>
+    </tr>
+
+    {% for emp in data %}
+    <tr>
+        <td>{{ emp[0] }}</td>
+        <td>{{ emp[1] }}</td>
+        <td>{{ emp[2] }}</td>
+        <td>{{ emp[3] }}</td>
+        <td>{{ emp[4] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+</div>
+
+<div class="back">
+    <a href="/">
+        <button>Back to Dashboard</button>
+    </a>
+</div>
+
+</body>
+</html>

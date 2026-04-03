@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Result</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        width: 420px;
+        background: rgba(255, 255, 255, 0.408);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+    }
+
+    h2 {
+        text-align: center;
+        color: #38bdf8;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 15px;
+        margin: 10px 0;
+        padding: 10px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+    }
+
+    .label {
+        font-weight: bold;
+        color: #93c5fd;
+    }
+
+    .success {
+        color: #22c55e;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .error {
+        color: #f87171;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+    }
+
+    a button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: #38bdf8;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    a button:hover {
+        background: #0ea5e9;
+        transform: scale(1.03);
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+{% if data %}
+    <div class="success">Employee Found</div>
+    <h2>Employee Details</h2>
+
+    <p><span class="label">Name:</span> {{ data[0] }}</p>
+    <p><span class="label">Skill:</span> {{ data[1] }}</p>
+    <p><span class="label">Tasks:</span> {{ data[2] }}</p>
+    <p><span class="label">Work Type:</span> {{ data[3] }}</p>
+
+{% else %}
+    <div class="success">Task Allocated Successfully</div>
+    <h2>Allocation Result</h2>
+
+    <p><span class="label">Name:</span> {{ emp_name }}</p>
+    <p><span class="label">Skill:</span> {{ emp_skill }}</p>
+    <p><span class="label">Tasks:</span> {{ workload }}</p>
+    <p><span class="label">Work Type:</span> {{ work_type }}</p>
+
+{% endif %}
+
+<a href="/">
+    <button>Back to Dashboard</button>
+</a>
+
+</div>
+
+</body>
+</html>

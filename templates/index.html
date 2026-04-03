@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Task Allocation System</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #0f172a;
+    }
+
+    .dashboard {
+        width: 900px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .header {
+        grid-column: span 2;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .header h1 {
+        font-size: 30px;
+        color: #0284c7;
+        letter-spacing: 1px;
+    }
+
+    .header p {
+        color: #475569;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    h3 {
+        margin-bottom: 15px;
+        color: #0f172a;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        outline: none;
+        background: #f8fafc;
+    }
+
+    input:focus {
+        border-color: #38bdf8;
+        box-shadow: 0 0 5px rgba(56,189,248,0.4);
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: #38bdf8;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #0ea5e9;
+        transform: scale(1.03);
+    }
+
+    .green {
+        background: #22c55e;
+    }
+
+    .green:hover {
+        background: #16a34a;
+    }
+
+    .full {
+        grid-column: span 2;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Task Allocation System</h1>
+        <p>HR Management Dashboard • Employee Skill & Task Management</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="card">
+        <h3>🔍 Search Employee</h3>
+        <form action="/search" method="POST">
+            <input type="text" name="name" placeholder="Enter Employee Name" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- ALLOCATION -->
+    <div class="card">
+        <h3>🚀 Allocate Task</h3>
+        <form action="/allocate" method="POST">
+            <input type="text" name="skill" placeholder="Enter Skill" required>
+            <input type="number" name="complexity" placeholder="Enter Complexity" required>
+            <button type="submit">Allocate Task</button>
+        </form>
+    </div>
+
+    <!-- VIEW -->
+    <div class="card full">
+        <h3>👥 Employees Database</h3>
+        <a href="/employees">
+            <button class="green">View All Employees</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
